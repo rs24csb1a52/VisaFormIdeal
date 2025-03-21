@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply for Visa</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <h2>Apply for Visa Now</h2>
+    <form action="process.php" id="visaForm" method="POST">
+        Name : <input type="text" id="name" name="name"><br>
+        Passport : <input type="text" id="passport" name="passport"><br>
+        Country : <select id="country" name="country">
+            <option value="S">select a country</option>
+            <option value="U">USA</option>
+            <option value="C">Canada</option>
+            <option value="I">India</option>
+            <option value="UK">UK</option>
+            <option value="AUS">Australia</option>
+        </select><br>
+        Password : <input type="password" id="password" name="password"><br>
+        <button id="submitBtn" onsubmit="" type="submit" >Apply for Visa</button>
+    </form>
+    <script src="./validate.js"></script>
+</body>
+</html>
