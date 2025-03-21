@@ -1,5 +1,6 @@
-
 document.getElementById("visaForm").onsubmit = function(event) {
+    event.preventDefault(); // Always prevent default form submission
+    
     let isValid = true;
     let errorMessages = [];
     clearErrorMessages();
@@ -27,9 +28,27 @@ document.getElementById("visaForm").onsubmit = function(event) {
         isValid = false;
         errorMessages.push("Password must be at least 6 characters long.");
     }
+    
     if (!isValid) {
-        event.preventDefault();
         displayErrorMessages(errorMessages);
+    } else {
+        // Form is valid, proceed with AJAX submission
+        const formData = new FormData(document.getElementById("visaForm"));
+        
+        fetch('process.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.text())
+        .then(data => {
+            // Display the response in the result div
+            document.getElementById("result").innerHTML = data;
+            document.getElementById("result").style.display = "block";
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            displayErrorMessages(["An error occurred while processing your request."]);
+        });
     }
 };
 
