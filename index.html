@@ -8,7 +8,7 @@
 </head>
 <body>
     <h2>Apply for Visa Now</h2>
-    <form action="process.php" id="visaForm" method="POST">
+    <form id="visaForm" method="POST">
         Name : <input type="text" id="name" name="name"><br>
         Passport : <input type="text" id="passport" name="passport"><br>
         Country : <select id="country" name="country">
@@ -20,8 +20,11 @@
             <option value="AUS">Australia</option>
         </select><br>
         Password : <input type="password" id="password" name="password"><br>
-        <button id="submitBtn" onsubmit="" type="submit" >Apply for Visa</button>
+        <button id="submitBtn" type="submit">Apply for Visa</button>
     </form>
+    
+    <div id="result" style="display: none; margin-top: 20px; padding: 15px; border: 1px solid #ccc; border-radius: 5px;"></div>
+    
     <script src="./validate.js"></script>
 </body>
 </html>
